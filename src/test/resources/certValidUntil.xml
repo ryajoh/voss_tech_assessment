@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Certificate Information" parallel="methods" thread-count="1">
+    <test name="Certificate Expiration" preserve-order="false">
+        <classes>
+            <class name="tests.CertificateUtility">
+                <methods>
+                    <include name="getCertificateExpiryDate"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
