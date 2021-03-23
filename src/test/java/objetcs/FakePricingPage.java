@@ -14,9 +14,9 @@ public class FakePricingPage extends LocalAbstractScreen {
     @FindBy(xpath = "(//a[contains(@class, 'et_pb_pricing_table_button')])[2]")
     private WebElement purchaseBasicPlanButton;
 
-    public void userPurchasesBasicPlan() {
+    public void userPurchasesBasicPlan() throws InterruptedException {
         purchaseBasicPlanButton.click();
-
+        Thread.sleep(3000);
     }
 
 

@@ -38,27 +38,19 @@ public class FillOutFormsPage extends LocalAbstractScreen {
     @FindBy(name = "et_builder_submit_button")
     private WebElement submitButton1;
 
-    @FindBy(xpath = "//*[text()='Form filled out successfully']")
+    @FindBy(xpath = "//*[text()='Thanks for contacting us']")
     private WebElement formOneFilledSuccessfully;
 
-    @FindBy(xpath = "//*[text()='Success']")
+    @FindBy(xpath = "(//*[text()='Thanks for contacting us'])[2]")
     private WebElement formTwoFilledSuccessfully;
 
     public void addNameAndMessageDetailsForFirstSubmission() throws InterruptedException {
 
-            driver.navigate().refresh();
-            nameTextField1.sendKeys("Ryan");
-            messageTextArea1.sendKeys("This is a test message 1");
-
-
-        for (int i = 1; i <=3; i++) {
-            messageTextArea1.click();
-            submitButton1.click();
-            Thread.sleep(5000);
-        }
+        driver.navigate().refresh();
+        nameTextField1.sendKeys("Ryan");
+        messageTextArea1.sendKeys("This is a test message 1");
+        submitButton1.click();
         Assert.assertTrue(formOneFilledSuccessfully.isDisplayed());
-
-
         nameTextField2.sendKeys("Ryan");
         messageTextArea2.sendKeys("This is a test message 2");
         calculateCaptchaAnswer();

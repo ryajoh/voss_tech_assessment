@@ -12,6 +12,8 @@ import utils.LocalAbstractScreen;
 
 import java.io.File;
 
+import static utils.LocalWebTestBase.browserWindow;
+
 public class HomePage extends LocalAbstractScreen {
 
     public HomePage(WebDriver driver) {
@@ -37,7 +39,11 @@ public class HomePage extends LocalAbstractScreen {
 
     public void takeScreenShot() throws Exception{
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File("screenshots\\screenshot.png"));
+        if (browserWindow.equals("chrome")) {
+            FileUtils.copyFile(scrFile, new File("screenshots\\screenshot_chrome.png"));
+        } else if (browserWindow.equals("firefox")) {
+            FileUtils.copyFile(scrFile, new File("screenshots\\screenshot_firefox.png"));
+        }
     }
 
     public void maximiseBrowser() throws InterruptedException {
